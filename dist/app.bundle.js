@@ -51,6 +51,11 @@ class NewsApiRepository extends Repository {
 class ArticleList {
     constructor(fetchedData) {
         this.articles = fetchedData.articles;
+        this.title = "BBC News";
+    }
+
+    getTitle() {
+        return this.title;
     }
 
     *[Symbol.iterator]() {
@@ -73,7 +78,7 @@ class ArticleList {
                 `</footer>`
             ];
             let tpl = [
-                `<li class="article">`,
+                `<li class="article-item">`,
                 `<a class="link" href="${url}">`,
                 `<article class="article">`,
                 ...header,
@@ -96,9 +101,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let apiKey = keyStore.get(user);
     let sourceName = NewsApiRepository.getSourceName(NewsApiSources.SOURCE_BBC_NEWS);
     let articleListElement = document.getElementsByClassName("article-list").item(0);
+    let articleTitleElement = document.getElementsByClassName("title").item(0);
     repo.getArticles(sourceName, apiKey)
         .then(fetchedData => new ArticleList(fetchedData))
         .then(articleList => {
+            articleTitleElement.innerHTML = `<span class="title-text">${articleList.getTitle()}</span>`;
             articleListElement.innerHTML = [...articleList].join("\n");
         })
         .catch(err => {
