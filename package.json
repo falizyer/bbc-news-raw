@@ -1,0 +1,27 @@
+{
+  "name": "falizyer.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-sass": "^2.3.2",
+    "node-sass": "^3.11.2",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/falizyer/falizyer.github.io.git"
+  },
+  "author": "Dzmitry Hrachou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/falizyer/falizyer.github.io/issues"
+  },
+  "homepage": "https://falizyer.github.io"
+}
