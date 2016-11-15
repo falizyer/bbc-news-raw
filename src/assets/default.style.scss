@@ -14,12 +14,13 @@ body {
 
 body {
   align-items: center;
+  background-color: #EEEFEA;
 }
 
 .page-content {
   display: flex;
   flex-direction: column;
-  width: 1024px;
+  max-width: 1024px;
 
   .article-list {
     display: flex;
@@ -88,6 +89,23 @@ body {
         flex-direction: row;
         justify-content: space-between;
         z-index: 1;
+      }
+
+    }
+
+    @media all and (max-width: 800px) {
+      .article-item .footer {
+        flex-direction: column;
+      }
+    }
+
+    @media all and (max-width: 600px) {
+      .article-item {
+        width: 100%;
+
+        .footer {
+          flex-direction: column;
+        }
       }
     }
   }

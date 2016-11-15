@@ -12,12 +12,13 @@ body {
 
 body {
   align-items: center;
+    background-color: #CECECE;
 }
 
 .page-content {
   display: flex;
   flex-direction: column;
-  width: 1024px;
+    max-width: 1024px;
 }
   .page-content .article-list {
     display: flex;
@@ -25,7 +26,7 @@ body {
     flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
-    margin: 0;
+      margin: 0;
   }
 
 .page-content .article-list .article-item {
@@ -34,12 +35,12 @@ body {
       flex-direction: column;
       justify-content: space-between;
       height: 300px;
-  width: calc(100% / 2);
+    width: calc(100% / 2);
 }
 
 .page-content .article-list .article-item .link {
-  display: flex;
-  flex-grow: 1;
+    display: flex;
+    flex-grow: 1;
         text-transform: none;
         text-decoration: none;
         text-shadow: 1px 1px 2px black, 0 0 1em black;
@@ -52,14 +53,14 @@ body {
           opacity: 1; }
 
 .page-content .article-list .article-item .article {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 10px 10px;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 10px 10px;
 }
 
 .page-content .article-list .article-item .article-wrap {
-        display: flex;
+    display: flex;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -82,3 +83,19 @@ body {
         flex-direction: row;
         justify-content: space-between;
         z-index: 1; }
+
+@media all and (max-width: 800px) {
+    .page-content .article-list .article-item .footer {
+        flex-direction: column;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .page-content .article-list .article-item {
+        width: 100%;
+    }
+
+    .page-content .article-list .article-item .footer {
+        flex-direction: column;
+    }
+}
