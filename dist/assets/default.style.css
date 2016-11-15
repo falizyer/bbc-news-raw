@@ -12,13 +12,19 @@ body {
 
 body {
   align-items: center;
-    background-color: #CECECE;
+    background-color: #EEEFEA;
 }
 
 .page-content {
   display: flex;
   flex-direction: column;
     max-width: 1024px;
+    background: #F0F0F0;
+    box-shadow: 0 0 20px rgba(205, 205, 205, 0.8);
+}
+
+.page-content > .title {
+    padding-left: 10px;
 }
   .page-content .article-list {
     display: flex;
@@ -72,7 +78,8 @@ body {
 .page-content .article-list .article-item .article-wrap .image {
           width: 100%;
           height: 100%;
-          opacity: .8; }
+    opacity: .9;
+}
 
 .page-content .article-list .article-item .header {
         display: flex;
@@ -93,9 +100,5 @@ body {
 @media all and (max-width: 600px) {
     .page-content .article-list .article-item {
         width: 100%;
-    }
-
-    .page-content .article-list .article-item .footer {
-        flex-direction: column;
     }
 }
