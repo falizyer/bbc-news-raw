@@ -36,13 +36,13 @@ class NewsApiRepository extends Repository {
     }
 
     getArticles(source, apiKey) {
-        let settings = {
+        let properties = {
             method: "GET",
             headers: this.getHeaders(),
             mode: "cors",
             cache: "default"
         };
-        let response = new Request(`${this.getUrl()}/articles?source=${source}&apiKey=${apiKey}`, settings);
+        let response = new Request(`${this.getUrl()}/articles?source=${source}&apiKey=${apiKey}`, properties);
         return fetch(response)
             .then(response => response.json());
     }

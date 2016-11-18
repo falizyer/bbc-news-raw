@@ -1,3 +1,5 @@
+@import "color.pallete";
+
 * {
   box-sizing: border-box;
 }
@@ -112,3 +114,5 @@ body {
     }
   }
 }
+
+@import "../shared/fading-spinner/fading-spinner.style";
