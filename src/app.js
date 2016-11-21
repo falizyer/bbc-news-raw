@@ -1,5 +1,5 @@
 "use strict";
-
+import {IndexPage} from "~/component/index-page/index-page";
 class Repository {
 
     constructor(url) {
