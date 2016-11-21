@@ -73,7 +73,7 @@ var Repository = exports.Repository = function () {
     }, {
         key: "request",
         value: function request(url, properties, type) {
-            var response = Request(url, properties);
+            var response = new Request(url, properties);
             return this.fetch(response, type);
         }
     }]);

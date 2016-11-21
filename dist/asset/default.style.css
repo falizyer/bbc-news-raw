@@ -192,3 +192,11 @@ body {
     opacity: 0; }
   40% {
     opacity: 1; } }
+
+article-list,
+[article-list] {
+  display: -ms-flexbox;
+  display: flex; }
+  article-list .spinner-container,
+  [article-list] .spinner-container {
+    width: 100%; }

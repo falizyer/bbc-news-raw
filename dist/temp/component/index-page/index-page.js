@@ -19,23 +19,57 @@ var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _newsApi = require("../../repository/news-api.repository");
 
-var _articleList = require("../../shared/article-list/article-list");
-
-var _user = require("../../core/user.class");
+var _articleList = require("..\\../shared/article-list/article-list");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var indexPageTpl = "<section id=\"content\" class=\"page-content\">\r\n    <h2 class=\"title\">BBC News</h2>\r\n    <ol class=\"article-list\" article-list></ol>\r\n    <a href=\"https://newsapi.org/\">Powered by News API</a>\r\n</section>";
+
 var IndexPage = exports.IndexPage = function () {
-    function IndexPage() {
+    (0, _createClass3.default)(IndexPage, null, [{
+        key: (0, _for2.default)("render"),
+        value: function value() {
+            IndexPage.instnce[(0, _for2.default)("render")]();
+        }
+    }, {
+        key: "instnce",
+        get: function get() {
+            return this._instance === void 0 ? this._instance = new IndexPage(document.querySelector("html")) : this._instance;
+        }
+    }]);
+
+    function IndexPage(parent) {
         (0, _classCallCheck3.default)(this, IndexPage);
 
-        var user = new _user.User("falizyer", "");
-        _newsApi.NewsApiRepository.getArticles(user, _newsApi.NewsApiSource.BBC_NEWS);
+        this.element = parent.querySelector("body");
+        this._instance = void 0;
+        this.articleList = new _articleList.ArticleList(this.element);
+        this.user = {
+            getApiKey: function getApiKey() {
+                return "cbf7163e029d46be9533f928a0c9228f";
+            }
+        };
     }
 
     (0, _createClass3.default)(IndexPage, [{
+        key: "loadNews",
+        value: function loadNews() {
+            var _this = this;
+
+            this.articleList.showSpinner();
+            return _newsApi.NewsApiRepository.getArticles(this.user, _newsApi.NewsApiSource.BBC_NEWS).then(function (response) {
+                var articles = response.articles;
+
+                _this.articleList[(0, _for2.default)("update")](articles);
+                _this.articleList.showSpinner(false);
+            });
+        }
+    }, {
         key: (0, _for2.default)("render"),
-        value: function value() {}
+        value: function value() {
+            this.element.innerHTML = indexPageTpl;
+            this.articleList[(0, _for2.default)("render")]();
+        }
     }]);
     return IndexPage;
 }();

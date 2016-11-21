@@ -1,4 +1,8 @@
 article-list,
 [article-list] {
   display: flex;
+
+  .spinner-container {
+    width: 100%;
+  }
 }

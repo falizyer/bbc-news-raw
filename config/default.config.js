@@ -43,6 +43,7 @@ const config = {
         plugins: [
             "transform-es2015-modules-commonjs",
             "transform-runtime",
+            "transform-html-import-to-string",
             require("../babel_modules/babel-transform-equal"),
             require("../babel_modules/babel-transform-tilda")
         ]
@@ -54,7 +55,7 @@ const config = {
     browserify: {
         insertGlobals: true,
         transform: ["babelify"],
-        extensions: ['.js']
+        extensions: [".js"]
     }
 };
 

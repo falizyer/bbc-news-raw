@@ -41,7 +41,7 @@ export class Repository {
     }
 
     static request(url, properties, type) {
-        const response = Request(url, properties);
+        const response = new Request(url, properties);
         return this.fetch(response, type);
     }
 
