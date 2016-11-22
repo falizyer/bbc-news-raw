@@ -9,13 +9,13 @@
     <script src="dist/vendor/require.js"></script>
     <script type="text/javascript">
         requirejs.config({
-            baseUrl: "./"
+            baseUrl: "./dist"
         });
         requirejs([
             "./vendor/polyfill",
             "./vendor/fetch",
             "./vendor/lodash",
-            "./dist/app"
+            "./app"
         ]);
     </script>
 </head>
