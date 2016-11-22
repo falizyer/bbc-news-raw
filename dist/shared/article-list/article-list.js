@@ -95,7 +95,7 @@ define(["exports", "..\\../core/web-element.abstract"], function (exports, _webE
                         var li = document.createElement("li");
                         li.classList.add("spinner-container");
                         li.innerHTML = fadingSpinnerTpl;
-                        _element.insertBefore(li, _element.querySelector("li"));
+                        _element.appendChild(li);
                     }
                     return;
                 }
@@ -175,7 +175,7 @@ define(["exports", "..\\../core/web-element.abstract"], function (exports, _webE
             value: regeneratorRuntime.mark(function getArticlesTpl() {
                 var articles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.articles;
 
-                var _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, article, url, description, author, publishedAt, urlToImage;
+                var _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, article, url, description, author, publishedAt, urlToImage, date;
 
                 return regeneratorRuntime.wrap(function getArticlesTpl$(_context) {
                     while (1) {
@@ -189,60 +189,61 @@ define(["exports", "..\\../core/web-element.abstract"], function (exports, _webE
 
                             case 5:
                                 if (_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done) {
-                                    _context.next = 13;
+                                    _context.next = 14;
                                     break;
                                 }
 
                                 article = _step3.value;
                                 url = article.url, description = article.description, author = article.author, publishedAt = article.publishedAt, urlToImage = article.urlToImage;
-                                _context.next = 10;
-                                return articleTpl.replace(/(\$\{url\})/g, url).replace(/(\$\{description\})/g, description).replace(/(\$\{author\})/g, author).replace(/(\$\{publishedAt\})/g, publishedAt).replace(/(\$\{urlToImage\})/g, urlToImage);
+                                date = new Date(publishedAt);
+                                _context.next = 11;
+                                return articleTpl.replace(/(\$\{url\})/g, url).replace(/(\$\{description\})/g, description).replace(/(\$\{author\})/g, author).replace(/(\$\{publishedAt\})/g, date.toLocaleDateString() + " " + date.toLocaleTimeString()).replace(/(\$\{urlToImage\})/g, urlToImage);
 
-                            case 10:
+                            case 11:
                                 _iteratorNormalCompletion3 = true;
                                 _context.next = 5;
                                 break;
 
-                            case 13:
-                                _context.next = 19;
+                            case 14:
+                                _context.next = 20;
                                 break;
 
-                            case 15:
-                                _context.prev = 15;
+                            case 16:
+                                _context.prev = 16;
                                 _context.t0 = _context["catch"](3);
                                 _didIteratorError3 = true;
                                 _iteratorError3 = _context.t0;
 
-                            case 19:
-                                _context.prev = 19;
+                            case 20:
                                 _context.prev = 20;
+                                _context.prev = 21;
 
                                 if (!_iteratorNormalCompletion3 && _iterator3.return) {
                                     _iterator3.return();
                                 }
 
-                            case 22:
-                                _context.prev = 22;
+                            case 23:
+                                _context.prev = 23;
 
                                 if (!_didIteratorError3) {
-                                    _context.next = 25;
+                                    _context.next = 26;
                                     break;
                                 }
 
                                 throw _iteratorError3;
 
-                            case 25:
-                                return _context.finish(22);
-
                             case 26:
-                                return _context.finish(19);
+                                return _context.finish(23);
 
                             case 27:
+                                return _context.finish(20);
+
+                            case 28:
                             case "end":
                                 return _context.stop();
                         }
                     }
-                }, getArticlesTpl, this, [[3, 15, 19, 27], [20,, 22, 26]]);
+                }, getArticlesTpl, this, [[3, 16, 20, 28], [21,, 23, 27]]);
             })
         }]);
 

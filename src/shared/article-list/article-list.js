@@ -20,7 +20,7 @@ export class ArticleList extends WebElement {
                 let li = document.createElement("li");
                 li.classList.add("spinner-container");
                 li.innerHTML = fadingSpinnerTpl;
-                element.insertBefore(li, element.querySelector("li"));
+                element.appendChild(li);
             }
             return;
         }
@@ -60,11 +60,12 @@ export class ArticleList extends WebElement {
                 publishedAt,
                 urlToImage
             } = article;
+            let date = new Date(publishedAt);
             yield articleTpl
                 .replace(/(\$\{url\})/g, url)
                 .replace(/(\$\{description\})/g, description)
                 .replace(/(\$\{author\})/g, author)
-                .replace(/(\$\{publishedAt\})/g, publishedAt)
+                .replace(/(\$\{publishedAt\})/g, `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`)
                 .replace(/(\$\{urlToImage\})/g, urlToImage);
         }
     }
