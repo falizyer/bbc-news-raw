@@ -111,7 +111,7 @@ define(["exports", "..\\../core/web-element.abstract"], function (exports, _webE
         }, {
             key: _webElement.WebElement.update,
             value: function value(_articles) {
-                var articles = _.uniqBy(_articles.slice(Math.floor(Math.random() * 9)), "url");
+                var articles = _.uniqBy(_articles, "url");
                 var clearList = _.intersectionBy(this.articles, articles, "url");
                 var element = this.getElement();
                 var _iteratorNormalCompletion = true;

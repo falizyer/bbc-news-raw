@@ -7,7 +7,7 @@ define(["./core/web-element.abstract", "./component/index-page/index-page"], fun
     });
 
     function startUpdate() {
-        var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000 * 1 * 5;
+        var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000 * 60 * 5;
 
         setTimeout(function () {
             return _indexPage.IndexPage.instnce.loadNews().then(function () {
