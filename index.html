@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="dist/asset/default.style.css"/>
     <script src="dist/vendor/require.js"></script>
     <script type="text/javascript">
+        requirejs.config({
+            baseUrl: "./"
+        });
         requirejs([
             "./vendor/polyfill",
             "./vendor/fetch",
