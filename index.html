@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>ES6 News</title>
     <link rel="stylesheet" href="dist/asset/default.style.css"/>
-    <script type="text/javascript" src="dist/app.js"></script>
+    <script src="dist/vendor/require.js"></script>
+    <script type="text/javascript">
+        requirejs([
+            "./vendor/polyfill",
+            "./vendor/fetch",
+            "./vendor/lodash",
+            "./dist/app"
+        ]);
+    </script>
 </head>
 <body>
 <section class="page-content" index-page></section>

@@ -1,12 +1,13 @@
 "use strict";
+import {WebElement} from "~/core/web-element.abstract";
 import {NewsApiRepository, NewsApiSource} from "~/repository/news-api.repository";
 import {ArticleList} from "~/shared/article-list/article-list";
 import indexPageTpl from "./index-page.tpl.html";
 
-export class IndexPage {
+export class IndexPage extends WebElement {
 
-    static [Symbol.for("render")]() {
-        IndexPage.instnce[Symbol.for("render")]();
+    static [WebElement.render]() {
+        IndexPage.instnce[WebElement.render]();
     }
 
     static get instnce() {
@@ -16,9 +17,10 @@ export class IndexPage {
     }
 
     constructor(parent) {
-        this.element = parent.querySelector("body");
-        this._instance = void 0;
-        this.articleList = new ArticleList(this.element);
+        super(parent, {
+            locator: "[index-page]"
+        });
+        this.articleList = new ArticleList(this.getElement());
         this.user = {
             getApiKey() {
                 return "cbf7163e029d46be9533f928a0c9228f";
@@ -31,13 +33,13 @@ export class IndexPage {
         return NewsApiRepository.getArticles(this.user, NewsApiSource.BBC_NEWS)
             .then(response => {
                 const {articles} = response;
-                this.articleList[Symbol.for("update")](articles);
+                this.articleList[WebElement.update](articles);
                 this.articleList.showSpinner(false);
             });
     }
 
-    [Symbol.for("render")]() {
-        this.element.innerHTML = indexPageTpl;
-        this.articleList[Symbol.for("render")]();
+    [WebElement.render]() {
+        this.setElementHTML(indexPageTpl);
+        this.articleList[WebElement.render]();
     }
 }
