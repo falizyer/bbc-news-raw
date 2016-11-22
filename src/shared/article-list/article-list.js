@@ -1,19 +1,20 @@
 "use strict";
-import fadingSpinnerTpl from "~/shared/fading-spinner/fading-spinner.html";
-import {uniqBy, intersectionBy} from "lodash";
+import {WebElement} from "~/core/web-element.abstract";
+import fadingSpinnerTpl from "~/shared/fading-spinner/fading-spinner.tpl.html";
 import articleTpl from "./article-list.tpl.html";
 
-export class ArticleList {
+export class ArticleList extends WebElement {
 
     constructor(parent) {
-        this.parent = parent;
-        this.locator = "[article-list]";
+        super(parent, {
+            locator: "[article-list]"
+        });
         this.articles = [];
     }
 
     showSpinner(isVisible = true) {
         if (isVisible === true) {
-            let element = this.parent.querySelector(this.locator);
+            let element = this.getElement();
             let spinner = element.querySelectorAll(".sk-fading-circle");
             if (spinner.length < 1) {
                 let li = document.createElement("li");
@@ -27,20 +28,20 @@ export class ArticleList {
         element.removeChild(element.querySelector("li.spinner-container"));
     }
 
-    [Symbol.for("render")]() {
-        let element = this.parent.querySelector(this.locator);
+    [WebElement.render]() {
         let articlesTpl = this.getArticlesTpl(this.articles);
-        element.innerHTML = [...articlesTpl].join("");
+        this.setElementHTML([...articlesTpl].join(""));
     }
 
-    [Symbol.for("update")](_articles) {
-        let articles = uniqBy(_articles, "url");
-        let clearList = intersectionBy(this.articles, articles, "url");
-        let element = this.parent.querySelector(this.locator);
+    [WebElement.update](_articles) {
+        let articles = _.uniqBy(_articles, "url");
+        let clearList = _.intersectionBy(this.articles, articles, "url");
+        let element = this.getElement();
         for (let clearElement of clearList) {
-            element.removeChild(element.querySelector(`[href="${clearElement.url}"]`).parentNode);
+            const {url} = clearElement;
+            element.removeChild(element.querySelector(`[href="${url}"]`).parentNode);
         }
-        this.articles = uniqBy([...articles, ...this.articles], "url");
+        this.articles = _.uniqBy([...articles, ...this.articles], "url");
         let articlesTpl = this.getArticlesTpl(articles);
         for (let articleTpl of articlesTpl) {
             let li = document.createElement("li");

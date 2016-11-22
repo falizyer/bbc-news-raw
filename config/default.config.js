@@ -8,9 +8,6 @@ const config = {
     nodeModules: {
         path: "./node_modules"
     },
-    temp: {
-        path: "./temp"
-    },
     source: {
         path: "./src",
         get entry() {
@@ -38,12 +35,15 @@ const config = {
             }
         }
     },
+    vendor: {
+        get path() {
+            return path.join(config.dist.path, "vendor");
+        }
+    },
     babel: {
         presets: ["es2015"],
         plugins: [
-            "transform-es2015-classes",
-            "transform-es2015-modules-commonjs",
-            "transform-runtime",
+            "transform-es2015-modules-amd",
             "transform-html-import-to-string",
             require("../babel_modules/babel-transform-equal"),
             require("../babel_modules/babel-transform-tilda")
@@ -52,11 +52,6 @@ const config = {
     autoprefixer: {
         browsers: ["last 2 versions"],
         cascade: false
-    },
-    browserify: {
-        insertGlobals: true,
-        transform: ["babelify"],
-        extensions: [".js"]
     }
 };
 
