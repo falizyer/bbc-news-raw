@@ -1,4 +1,5 @@
 "use strict";
+import "whatwg-fetch";
 import {IndexPage} from "~/component/index-page/index-page";
 document.addEventListener("DOMContentLoaded", () => {
     IndexPage[Symbol.for("render")]();

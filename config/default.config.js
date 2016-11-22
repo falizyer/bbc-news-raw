@@ -41,6 +41,7 @@ const config = {
     babel: {
         presets: ["es2015"],
         plugins: [
+            "transform-es2015-classes",
             "transform-es2015-modules-commonjs",
             "transform-runtime",
             "transform-html-import-to-string",

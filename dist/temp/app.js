@@ -4,7 +4,7 @@ var _for = require("babel-runtime/core-js/symbol/for");
 
 var _for2 = _interopRequireDefault(_for);
 
-var _indexPage = require("./component/index-page/index-page");
+require("whatwg-fetch");
 
 var _indexPage = require("./component/index-page/index-page");
 
