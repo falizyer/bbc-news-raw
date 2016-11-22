@@ -1,4 +1,5 @@
 "use strict";
+require("babel-polyfill");
 import "whatwg-fetch";
 import {IndexPage} from "~/component/index-page/index-page";
 document.addEventListener("DOMContentLoaded", () => {

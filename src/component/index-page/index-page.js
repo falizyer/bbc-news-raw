@@ -1,5 +1,5 @@
 "use strict";
-import {NewsApiRepository, NewsApiSource} from "../../repository/news-api.repository";
+import {NewsApiRepository, NewsApiSource} from "~/repository/news-api.repository";
 import {ArticleList} from "~/shared/article-list/article-list";
 import indexPageTpl from "./index-page.tpl.html";
 

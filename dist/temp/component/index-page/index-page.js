@@ -17,7 +17,7 @@ var _createClass2 = require("babel-runtime/helpers/createClass");
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _newsApi = require("../../repository/news-api.repository");
+var _newsApi = require("..\\../repository/news-api.repository");
 
 var _articleList = require("..\\../shared/article-list/article-list");
 
