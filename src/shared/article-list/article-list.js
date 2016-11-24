@@ -1,7 +1,7 @@
-"use strict";
-import {WebElement} from "~/core/web-element.abstract";
-import fadingSpinnerTpl from "~/shared/fading-spinner/fading-spinner.tpl.html";
-import articleTpl from "./article-list.tpl.html";
+import {WebElement} from "../../core/web-element.abstract";
+
+const fadingSpinnerTpl = require("../../shared/fading-spinner/fading-spinner.tpl.html");
+const articleTpl = require("./article-list.tpl.html");
 
 export class ArticleList extends WebElement {
 

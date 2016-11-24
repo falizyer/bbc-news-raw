@@ -1,12 +1,11 @@
-"use strict";
 import {
     Repository,
     RequestMethod,
     ResponseType,
     RequestCache,
     RequestMode
-} from "~/core/repository.abstract";
-import {readonly} from "~/core/helpers";
+} from "../core/repository.abstract";
+import {readonly} from "../core/helpers";
 
 export const NewsApiSource = {
     BBC_NEWS: "bbc-news"

@@ -1,16 +1,16 @@
-"use strict";
-import {WebElement} from "~/core/web-element.abstract";
-import {NewsApiRepository, NewsApiSource} from "~/repository/news-api.repository";
-import {ArticleList} from "~/shared/article-list/article-list";
-import indexPageTpl from "./index-page.tpl.html";
+import {WebElement} from "../../core/web-element.abstract";
+import {NewsApiRepository, NewsApiSource} from "../../repository/news-api.repository";
+import {ArticleList} from "../../shared/article-list/article-list";
+
+const indexPageTpl = require("./index-page.tpl.html");
 
 export class IndexPage extends WebElement {
 
     static [WebElement.render]() {
-        IndexPage.instnce[WebElement.render]();
+        IndexPage.instance[WebElement.render]();
     }
 
-    static get instnce() {
+    static get instance() {
         return this._instance === void 0
             ? this._instance = new IndexPage(document.querySelector("html"))
             : this._instance;

@@ -1,4 +1,3 @@
-"use strict";
 import {readonly} from "./helpers";
 
 export const RequestMethod = {
