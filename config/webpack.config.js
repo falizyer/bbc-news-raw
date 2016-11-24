@@ -10,10 +10,10 @@ function isExternal(module) {
     if (typeof userRequest !== "string") {
         return false;
     }
-    console.log(userRequest);
+
     return userRequest.indexOf("bower_components") >= 0 ||
         userRequest.indexOf("node_modules") >= 0 &&
-        userRequest.indexOf(path.join("sass-loader", "index.js!")) === -1;
+        userRequest.indexOf(path.join("!")) === -1;
 }
 
 const webpackConfig = {
@@ -21,6 +21,7 @@ const webpackConfig = {
     entry: config.source.entry,
     devtool: "source-map",
     output: {
+        path: path.resolve(config.context, config.dist.path),
         filename: "[name].bundle.js",
         chunkFilename: "[id].bundle.js"
     },
@@ -44,7 +45,7 @@ const webpackConfig = {
             }
         }),
         new LicenseWebpackPlugin({
-            filename: "./dist/3RD-PARTY.LICENSE",
+            filename: "./3RD-PARTY.LICENSE",
             pattern: /^(MIT|ISC|BSD.*)$/
         })
     ],
