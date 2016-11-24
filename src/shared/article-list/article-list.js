@@ -1,7 +1,8 @@
+import "./article-list.style.scss";
+import fadingSpinnerTpl from "../../shared/fading-spinner/fading-spinner.tpl.html";
+import articleTpl from "./article-list.tpl.html";
+import {uniqBy, intersectionBy} from "lodash";
 import {WebElement} from "../../core/web-element.abstract";
-
-const fadingSpinnerTpl = require("../../shared/fading-spinner/fading-spinner.tpl.html");
-const articleTpl = require("./article-list.tpl.html");
 
 export class ArticleList extends WebElement {
 
@@ -34,14 +35,14 @@ export class ArticleList extends WebElement {
     }
 
     [WebElement.update](_articles) {
-        let articles = _.uniqBy(_articles, "url");
-        let clearList = _.intersectionBy(this.articles, articles, "url");
+        let articles = uniqBy(_articles, "url");
+        let clearList = intersectionBy(this.articles, articles, "url");
         let element = this.getElement();
         for (let clearElement of clearList) {
             const {url} = clearElement;
             element.removeChild(element.querySelector(`[href="${url}"]`).parentNode);
         }
-        this.articles = _.uniqBy([...articles, ...this.articles], "url");
+        this.articles = uniqBy([...articles, ...this.articles], "url");
         let articlesTpl = this.getArticlesTpl(articles);
         for (let articleTpl of articlesTpl) {
             let li = document.createElement("li");

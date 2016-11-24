@@ -1,8 +1,8 @@
+import "./index-page.style.scss";
+import indexPageTpl from "./index-page.tpl.html";
 import {WebElement} from "../../core/web-element.abstract";
 import {NewsApiRepository, NewsApiSource} from "../../repository/news-api.repository";
 import {ArticleList} from "../../shared/article-list/article-list";
-
-const indexPageTpl = require("./index-page.tpl.html");
 
 export class IndexPage extends WebElement {
 

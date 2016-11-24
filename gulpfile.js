@@ -15,20 +15,12 @@ gulp.task("clean", () => {
         .pipe(clean());
 });
 
-gulp.task("compile:style", ["clean"], () => {
-    return gulp.src(config.source.assets.scss)
-        .pipe(sass().on("error", sass.logError))
-        .pipe(autoprefixer(config.autoprefixer))
-        .pipe(gulp.dest(config.dist.assets.path));
-});
-
-gulp.task("compile:script", ["clean"], () => {
+gulp.task("webpack", ["clean"], () => {
     return gulp.src("undefined.js", {read: false})
         .pipe(gulpWebpack(webpackConfig, webpack))
         .pipe(gulp.dest(config.dist.path))
 });
 
 gulp.task("default", [
-    "compile:style",
-    "compile:script"
+    "webpack"
 ]);

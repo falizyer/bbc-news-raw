@@ -1,4 +1,4 @@
-@import "color.pallete";
+@import "asset/color.pallete";
 
 * {
   box-sizing: border-box;
@@ -34,6 +34,3 @@ body {
     padding-left: 10px;
   }
 }
-
-@import "../shared/fading-spinner/fading-spinner.style";
-@import "../shared/article-list/article-list.style";

@@ -1,7 +1,9 @@
+import "./app.style.scss";
 import "babel-polyfill";
 import "whatwg-fetch";
+
 import {WebElement} from "./core/web-element.abstract";
-import {IndexPage} from "./component/index-page/index-page";
+import {IndexPage} from"./component/index-page/index-page";
 
 IndexPage[WebElement.render]();
 IndexPage.instance.loadNews()

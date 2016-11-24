@@ -12,17 +12,20 @@ const config = {
         path: "./src",
         get entry() {
             return {
-                "app": `./${path.join(config.source.path, "app.js")}`
+                "app": `./${path.join(this.path, "app.js")}`
             };
         },
         assets: {
             get path() {
-                return path.join(config.source.path, "asset")
+                return path.join(config.source.path, "asset");
+            }
+        },
+        component: {
+            get path () {
+                return path.join(config.source.path, "component");
             },
-            get scss() {
-                return [
-                    path.join(this.path, "default.style.scss")
-                ];
+            pathByName(name) {
+                return `./${path.join(this.path, name, name)}.js`;
             }
         }
     },
@@ -34,14 +37,10 @@ const config = {
             }
         }
     },
-    vendor: {
-        get path() {
-            return path.join(config.dist.path, "vendor");
-        }
-    },
     babel: {
         presets: ["es2015"],
-        plugins: []
+        plugins: [
+        ]
     },
     autoprefixer: {
         browsers: ["last 2 versions"],
