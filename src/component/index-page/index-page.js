@@ -1,8 +1,8 @@
-import "./index-page.style.scss";
+import {WebElement} from "core/web-element.abstract";
+import {NewsApiRepository, NewsApiSource} from "repository/news-api.repository";
+import {ArticleList} from "shared/article-list/article-list";
 import indexPageTpl from "./index-page.tpl.html";
-import {WebElement} from "../../core/web-element.abstract";
-import {NewsApiRepository, NewsApiSource} from "../../repository/news-api.repository";
-import {ArticleList} from "../../shared/article-list/article-list";
+import "./index-page.style.scss";
 
 export class IndexPage extends WebElement {
 

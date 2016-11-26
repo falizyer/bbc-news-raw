@@ -1,8 +1,8 @@
 "use strict";
+const argv = require("yargs").argv;
 const path = require("path");
 const webpack = require("webpack");
 const LicenseWebpackPlugin = require("license-webpack-plugin");
-const config = require("./default.config");
 
 function isExternal(module) {
     let userRequest = module.userRequest;
@@ -12,8 +12,9 @@ function isExternal(module) {
     }
 
     return userRequest.indexOf("bower_components") >= 0 ||
-        userRequest.indexOf("node_modules") >= 0 &&
-        userRequest.indexOf(path.join("!")) === -1;
+        userRequest.indexOf("node_modules") >= 0 ||
+        userRequest.indexOf("libraries") >= 0 ||
+        userRequest.indexOf("!") < 0;
 }
 
 const webpackConfig = {
@@ -26,22 +27,29 @@ const webpackConfig = {
         chunkFilename: "[id].bundle.js"
     },
     resolve: {
+        root: [path.resolve(config.context, config.source.path)],
         modulesDirectories: ["node_modules"],
         extensions: ["", ".css", ".scss", ".js"]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env": {
+                "ENV": JSON.stringify(argv.ENV)
+            }
+        }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendors",
-            filename: "vendors.js",
-            minChunks(module) {
+            name: "vendor",
+            filename: "vendor.js",
+            chunks: ["common"],
+            minChunks(module)  {
                 return isExternal(module);
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'common',
+            name: "common",
             filename: "common.js",
-            minChunks(module, count) {
-                return !isExternal(module) && count >= 2; // adjustable cond
+            minChunks(module, count)  {
+                return !isExternal(module) && count >= 2;
             }
         }),
         new LicenseWebpackPlugin({

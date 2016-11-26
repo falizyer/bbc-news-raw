@@ -1,8 +1,8 @@
-import "./article-list.style.scss";
-import fadingSpinnerTpl from "../../shared/fading-spinner/fading-spinner.tpl.html";
-import articleTpl from "./article-list.tpl.html";
 import {uniqBy, intersectionBy} from "lodash";
-import {WebElement} from "../../core/web-element.abstract";
+import {WebElement} from "core/web-element.abstract";
+import fadingSpinnerTpl from "shared/fading-spinner/fading-spinner.tpl.html";
+import articleTpl from "./article-list.tpl.html";
+import "./article-list.style.scss";
 
 export class ArticleList extends WebElement {
 

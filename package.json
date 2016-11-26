@@ -26,7 +26,8 @@
     "postcss-loader": "^1.1.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.3"
+    "webpack": "^1.13.3",
+    "yargs": "^6.4.0"
   },
   "engineStrict": true,
   "engines": {
@@ -34,7 +35,7 @@
     "npm": ">=3.10.8"
   },
   "scripts": {
-    "build": "webpack --config ./config/webpack.config.js --colors --progress",
+    "build": "webpack --config ./config/webpack.config.js --env prod --colors --progress",
     "postinstall": "npm run build --production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

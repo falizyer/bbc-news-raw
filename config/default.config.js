@@ -12,7 +12,8 @@ const config = {
         path: "./src",
         get entry() {
             return {
-                "app": `./${path.join(this.path, "app.js")}`
+                "app": `./${path.join(this.path, "app.js")}`,
+                "vendor": ["lodash"]
             };
         },
         assets: {
@@ -21,7 +22,7 @@ const config = {
             }
         },
         component: {
-            get path () {
+            get path() {
                 return path.join(config.source.path, "component");
             },
             pathByName(name) {
@@ -39,8 +40,7 @@ const config = {
     },
     babel: {
         presets: ["es2015"],
-        plugins: [
-        ]
+        plugins: []
     },
     autoprefixer: {
         browsers: ["last 2 versions"],

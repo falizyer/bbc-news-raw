@@ -1,11 +1,12 @@
-import "./app.style.scss";
+import "lodash";
 import "babel-polyfill";
 import "whatwg-fetch";
+import "./app.style.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
     require([
-            "./core/web-element.abstract",
-            "./component/index-page/index-page"],
+            "core/web-element.abstract",
+            "component/index-page/index-page"],
         (WebElementModule, IndexPageModule) => {
             const {WebElement} = WebElementModule;
             const {IndexPage} = IndexPageModule;
