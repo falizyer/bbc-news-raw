@@ -11,10 +11,15 @@ const config = {
     source: {
         path: "./src",
         get entry() {
-            return {
-                "app": `./${path.join(this.path, "app.js")}`,
-                "vendor": ["lodash"]
+            let dev = [
+                "webpack-dev-server/client?http://0.0.0.0:8080",
+                "webpack/hot/dev-server",
+                `./${path.join(this.path, "main.js")}`
+            ];
+            let prod = {
+                "main": `./${path.join(this.path, "main.js")}`
             };
+            return process.env.production === true ? prod : dev;
         },
         assets: {
             get path() {

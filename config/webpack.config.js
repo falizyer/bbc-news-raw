@@ -1,26 +1,13 @@
 "use strict";
-const argv = require("yargs").argv;
 const path = require("path");
 const webpack = require("webpack");
-const LicenseWebpackPlugin = require("license-webpack-plugin");
-
-function isExternal(module) {
-    let userRequest = module.userRequest;
-
-    if (typeof userRequest !== "string") {
-        return false;
-    }
-
-    return userRequest.indexOf("bower_components") >= 0 ||
-        userRequest.indexOf("node_modules") >= 0 ||
-        userRequest.indexOf("libraries") >= 0 ||
-        userRequest.indexOf("!") < 0;
-}
+const config = require("./default.config");
+const {plugins, devtool} = require(`./${process.env.production === true ? "production" : "development" }.config`);
 
 const webpackConfig = {
     context: config.context,
     entry: config.source.entry,
-    devtool: "source-map",
+    devtool,
     output: {
         path: path.resolve(config.context, config.dist.path),
         filename: "[name].bundle.js",
@@ -31,32 +18,7 @@ const webpackConfig = {
         modulesDirectories: ["node_modules"],
         extensions: ["", ".css", ".scss", ".js"]
     },
-    plugins: [
-        new webpack.DefinePlugin({
-            "process.env": {
-                "ENV": JSON.stringify(argv.ENV)
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-            filename: "vendor.js",
-            chunks: ["common"],
-            minChunks(module)  {
-                return isExternal(module);
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "common",
-            filename: "common.js",
-            minChunks(module, count)  {
-                return !isExternal(module) && count >= 2;
-            }
-        }),
-        new LicenseWebpackPlugin({
-            filename: "./3RD-PARTY.LICENSE",
-            pattern: /^(MIT|ISC|BSD.*)$/
-        })
-    ],
+    plugins,
     module: {
         preLoaders: [{
             test: /\.js$/,
@@ -75,6 +37,13 @@ const webpackConfig = {
             test: /\.scss/,
             loader: ["style", "css", "postcss", "sass"].join("!")
         }]
+    },
+    devServer: {
+        contentBase: path.resolve(config.context, config.dist.path),
+        colors: true,
+        progress: true,
+        inline: true,
+        hot: true
     }
 };
 
