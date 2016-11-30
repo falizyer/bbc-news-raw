@@ -1,5 +1,6 @@
 "use strict";
 const path = require("path");
+const {argv} = require("yargs");
 
 const config = {
     get context() {
@@ -19,7 +20,7 @@ const config = {
             let prod = {
                 "main": `./${path.join(this.path, "main.js")}`
             };
-            return process.env.production === true ? prod : dev;
+            return argv.production === true ? prod : dev;
         },
         assets: {
             get path() {

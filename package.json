@@ -27,6 +27,7 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
+    "webpack-clean": "^1.0.0",
     "webpack-dev-server": "^1.16.2",
     "yargs": "^6.4.0"
   },
@@ -37,8 +38,8 @@
   },
   "scripts": {
     "start": "node webpack-dev-server.js",
-    "build": "set production=true webpack --config ./config/webpack.config.js",
-    "build-dev": "set production=false & webpack --config ./config/webpack.config.js --colors --progress",
+    "build": "webpack --config ./config/webpack.config.js --production",
+    "build-dev": "webpack --config ./config/webpack.config.js --colors --progress",
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,8 +1,10 @@
 "use strict";
 const path = require("path");
+const {argv} = require("yargs");
 const webpack = require("webpack");
+const WebpackCleanPlugin = require("webpack-clean");
 const config = require("./default.config");
-const {plugins, devtool} = require(`./${process.env.production === true ? "production" : "development" }.config`);
+const {plugins, devtool} = require(`./${argv.production === true ? "production" : "development" }.config`);
 
 const webpackConfig = {
     context: config.context,
@@ -18,7 +20,12 @@ const webpackConfig = {
         modulesDirectories: ["node_modules"],
         extensions: ["", ".css", ".scss", ".js"]
     },
-    plugins,
+    plugins: [
+        new WebpackCleanPlugin([
+            "dist/"
+        ]),
+        ...plugins
+    ],
     module: {
         preLoaders: [{
             test: /\.js$/,

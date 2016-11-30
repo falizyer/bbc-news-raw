@@ -1,4 +1,5 @@
 "use strict";
+const {argv} = require("yargs");
 const webpack = require("webpack");
 const LicenseWebpackPlugin = require("license-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -7,7 +8,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
-                production: process.env.production
+                production: argv.production
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
