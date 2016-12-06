@@ -8,10 +8,12 @@ webpackJsonp([2,0,3],[
 
 	__webpack_require__(298);
 
+	var _elementFinder = __webpack_require__(299);
+
 	document.addEventListener("DOMContentLoaded", function () {
-	    var button = document.getElementById("button");
+	    var button = (0, _elementFinder.elementFinder)("#button").first();
 	    var handler = function handler() {
-	        __webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(299), __webpack_require__(300), __webpack_require__(316)]; (function (WebElementModule, IndexPageModule) {
+	        __webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(300), __webpack_require__(301), __webpack_require__(317)]; (function (WebElementModule, IndexPageModule) {
 	            document.querySelector("[index-page]").removeChild(button);
 
 	            var WebElement = WebElementModule.WebElement;
@@ -8625,6 +8627,71 @@ webpackJsonp([2,0,3],[
 	  self.fetch.polyfill = true
 	})(typeof self !== 'undefined' ? self : this);
 
+
+/***/ },
+/* 299 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	exports.elementFinder = elementFinder;
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var ElementFinderIterator = exports.ElementFinderIterator = function () {
+	    function ElementFinderIterator() {
+	        var items = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+	        _classCallCheck(this, ElementFinderIterator);
+
+	        this.index = 0;
+	        this.items = items;
+	    }
+
+	    _createClass(ElementFinderIterator, [{
+	        key: "first",
+	        value: function first() {
+	            this.reset();
+	            return this.next();
+	        }
+	    }, {
+	        key: "next",
+	        value: function next() {
+	            return this.items[this.index++];
+	        }
+	    }, {
+	        key: "hasNext",
+	        value: function hasNext() {
+	            return this.index <= this.items.length;
+	        }
+	    }, {
+	        key: "reset",
+	        value: function reset() {
+	            this.index = 0;
+	        }
+	    }, {
+	        key: "each",
+	        value: function each(callback) {
+	            for (var item = this.first(); this.hasNext(); item = this.next()) {
+	                callback(item);
+	            }
+	        }
+	    }]);
+
+	    return ElementFinderIterator;
+	}();
+
+	function elementFinder(selector) {
+	    var parent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.body;
+
+	    return new ElementFinderIterator(parent.querySelectorAll(selector));
+	}
 
 /***/ }
 ]);

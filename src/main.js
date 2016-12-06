@@ -1,8 +1,9 @@
 import "babel-polyfill";
 import "whatwg-fetch";
+import {elementFinder} from "./core/element-finder.class";
 
 document.addEventListener("DOMContentLoaded", () => {
-    let button = document.getElementById("button");
+    let button = elementFinder("#button").first();
     let handler = () => {
         require([
                 "core/web-element.abstract",

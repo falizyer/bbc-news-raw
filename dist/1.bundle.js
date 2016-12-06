@@ -1,6 +1,6 @@
 webpackJsonp([1,0,3],{
 
-/***/ 299:
+/***/ 300:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59,7 +59,7 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 300:
+/***/ 301:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -71,17 +71,17 @@ webpackJsonp([1,0,3],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _webElement = __webpack_require__(299);
+	var _webElement = __webpack_require__(300);
 
-	var _newsApi = __webpack_require__(301);
+	var _newsApi = __webpack_require__(302);
 
-	var _articleList = __webpack_require__(304);
+	var _articleList = __webpack_require__(305);
 
-	var _indexPageTpl = __webpack_require__(313);
+	var _indexPageTpl = __webpack_require__(314);
 
 	var _indexPageTpl2 = _interopRequireDefault(_indexPageTpl);
 
-	__webpack_require__(314);
+	__webpack_require__(315);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -148,7 +148,7 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 301:
+/***/ 302:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -160,9 +160,9 @@ webpackJsonp([1,0,3],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _repository = __webpack_require__(302);
+	var _repository = __webpack_require__(303);
 
-	var _helpers = __webpack_require__(303);
+	var _helpers = __webpack_require__(304);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -205,7 +205,7 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 302:
+/***/ 303:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -217,7 +217,7 @@ webpackJsonp([1,0,3],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _helpers = __webpack_require__(303);
+	var _helpers = __webpack_require__(304);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -308,7 +308,7 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 303:
+/***/ 304:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -323,7 +323,7 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 304:
+/***/ 305:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -335,19 +335,19 @@ webpackJsonp([1,0,3],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _lodash = __webpack_require__(305);
+	var _lodash = __webpack_require__(306);
 
-	var _webElement = __webpack_require__(299);
+	var _webElement = __webpack_require__(300);
 
-	var _fadingSpinnerTpl = __webpack_require__(307);
+	var _fadingSpinnerTpl = __webpack_require__(308);
 
 	var _fadingSpinnerTpl2 = _interopRequireDefault(_fadingSpinnerTpl);
 
-	var _articleListTpl = __webpack_require__(308);
+	var _articleListTpl = __webpack_require__(309);
 
 	var _articleListTpl2 = _interopRequireDefault(_articleListTpl);
 
-	__webpack_require__(309);
+	__webpack_require__(310);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -542,7 +542,7 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 305:
+/***/ 306:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -17611,11 +17611,11 @@ webpackJsonp([1,0,3],{
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(306)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(307)(module)))
 
 /***/ },
 
-/***/ 306:
+/***/ 307:
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -17632,30 +17632,30 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 307:
+/***/ 308:
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"sk-fading-circle\">\r\n    <div class=\"sk-circle1 sk-circle\"></div>\r\n    <div class=\"sk-circle2 sk-circle\"></div>\r\n    <div class=\"sk-circle3 sk-circle\"></div>\r\n    <div class=\"sk-circle4 sk-circle\"></div>\r\n    <div class=\"sk-circle5 sk-circle\"></div>\r\n    <div class=\"sk-circle6 sk-circle\"></div>\r\n    <div class=\"sk-circle7 sk-circle\"></div>\r\n    <div class=\"sk-circle8 sk-circle\"></div>\r\n    <div class=\"sk-circle9 sk-circle\"></div>\r\n    <div class=\"sk-circle10 sk-circle\"></div>\r\n    <div class=\"sk-circle11 sk-circle\"></div>\r\n    <div class=\"sk-circle12 sk-circle\"></div>\r\n</div>";
 
 /***/ },
 
-/***/ 308:
+/***/ 309:
 /***/ function(module, exports) {
 
 	module.exports = "<a class=\"link\" href=\"${url}\">\r\n    <figure class=\"article-wrap\"><img class=\"image\" src=\"${urlToImage}\" title=\"${description}\"/></figure>\r\n    <article class=\"article\">\r\n        <header class=\"header\"><h3 class=\"header-title\">${description}</h3></header>\r\n        <footer class=\"footer\">\r\n            <abbr class=\"author\" title=\"${author}\">Author: ${author}</abbr>\r\n            <abbr class=\"published\" title=\"${publishedAt}\">Published: ${publishedAt}</abbr>\r\n        </footer>\r\n    </article>\r\n</a>";
 
 /***/ },
 
-/***/ 309:
+/***/ 310:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(310);
+	var content = __webpack_require__(311);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(312)(content, {});
+	var update = __webpack_require__(313)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -17673,10 +17673,10 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 310:
+/***/ 311:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(311)();
+	exports = module.exports = __webpack_require__(312)();
 	// imports
 
 
@@ -17688,7 +17688,7 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 311:
+/***/ 312:
 /***/ function(module, exports) {
 
 	/*
@@ -17745,7 +17745,7 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 312:
+/***/ 313:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -17998,23 +17998,23 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 313:
+/***/ 314:
 /***/ function(module, exports) {
 
 	module.exports = "<h2 class=\"title\">BBC News</h2>\r\n<ol class=\"article-list\" article-list></ol>\r\n<a href=\"https://newsapi.org/\">Powered by News API</a>";
 
 /***/ },
 
-/***/ 314:
+/***/ 315:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(315);
+	var content = __webpack_require__(316);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(312)(content, {});
+	var update = __webpack_require__(313)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -18032,10 +18032,10 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 315:
+/***/ 316:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(311)();
+	exports = module.exports = __webpack_require__(312)();
 	// imports
 
 
@@ -18047,16 +18047,16 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 316:
+/***/ 317:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(317);
+	var content = __webpack_require__(318);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(312)(content, {});
+	var update = __webpack_require__(313)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -18074,10 +18074,10 @@ webpackJsonp([1,0,3],{
 
 /***/ },
 
-/***/ 317:
+/***/ 318:
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(311)();
+	exports = module.exports = __webpack_require__(312)();
 	// imports
 
 
