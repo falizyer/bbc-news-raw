@@ -1,5 +1,4 @@
 import {WebElement} from "core/web-element.abstract";
-import {NewsApiRepository, NewsApiSource} from "repository/news-api.repository";
 import {ArticleList} from "shared/article-list/article-list";
 import indexPageTpl from "./index-page.tpl.html";
 import "./index-page.style.scss";
@@ -8,6 +7,10 @@ export class IndexPage extends WebElement {
 
     static [WebElement.render]() {
         IndexPage.instance[WebElement.render]();
+    }
+
+    static [WebElement.update](state) {
+        IndexPage.instance[WebElement.update](state);
     }
 
     static get instance() {
@@ -21,25 +24,15 @@ export class IndexPage extends WebElement {
             locator: "[index-page]"
         });
         this.articleList = new ArticleList(this.getElement());
-        this.user = {
-            getApiKey() {
-                return "cbf7163e029d46be9533f928a0c9228f";
-            }
-        };
-    }
-
-    loadNews() {
-        this.articleList.showSpinner();
-        return NewsApiRepository.getArticles(this.user, NewsApiSource.BBC_NEWS)
-            .then(response => {
-                const {articles} = response;
-                this.articleList[WebElement.update](articles);
-                this.articleList.showSpinner(false);
-            });
     }
 
     [WebElement.render]() {
         this.setElementHTML(indexPageTpl);
         this.articleList[WebElement.render]();
+    }
+
+    [WebElement.update](state) {
+        const {articles} = state;
+        this.articleList[WebElement.update](articles);
     }
 }

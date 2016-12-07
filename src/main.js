@@ -1,6 +1,13 @@
 import "babel-polyfill";
 import "whatwg-fetch";
-import {elementFinder} from "./core/element-finder.class";
+import {elementFinder} from "core/element-finder.class";
+import {PageStore} from "store/page.store";
+import {PageConstant} from "constant/page.constant";
+import {NewsApiRepository, NewsApiSource} from "repository/news-api.repository";
+import {Dispatcher} from "flux";
+
+export const pageDispatcher = new Dispatcher();
+export const pageStore = new PageStore(pageDispatcher);
 
 document.addEventListener("DOMContentLoaded", () => {
     let button = elementFinder("#button").first();
@@ -15,12 +22,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 const {WebElement} = WebElementModule;
                 const {IndexPage} = IndexPageModule;
                 IndexPage[WebElement.render]();
-                IndexPage.instance.loadNews()
-                    .then(() => startUpdate());
+                pageStore.addListener(() => {
+                    IndexPage[WebElement.update](pageStore.getState());
+                });
+
+                loadNews();
+                startUpdate();
 
                 function startUpdate(delay = 1000 * 60 * 5) {
-                    setTimeout(() => IndexPage.instance.loadNews()
+                    setTimeout(() => loadNews()
                         .then(() => startUpdate(delay)), delay);
+                }
+
+                function loadNews() {
+                    return NewsApiRepository.getArticles({
+                        getApiKey() {
+                            return "cbf7163e029d46be9533f928a0c9228f";
+                        }
+                    }, NewsApiSource.BBC_NEWS)
+                        .then(response => {
+                            const {articles} = response;
+                            pageDispatcher.dispatch({
+                                type: PageConstant.RECEIVE_NEWS_ACTION,
+                                articles
+                            });
+                        });
                 }
             });
     };

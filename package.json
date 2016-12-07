@@ -5,7 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "babel-polyfill": "^6.16.0",
+    "flux": "^3.1.0",
     "lodash": "^4.17.2",
+    "react": "^15.4.1",
     "spinkit": "^1.2.5",
     "whatwg-fetch": "^2.0.1"
   },
